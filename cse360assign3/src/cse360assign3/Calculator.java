@@ -3,6 +3,7 @@ package cse360assign3;
 public class Calculator {
 	
 	private int total;
+	private String returnString = 0 + "";	//global returnString added for the getHistory function
 	
 	public Calculator(){
 		total = 0;	//not needed. included for clarity
@@ -21,6 +22,7 @@ public class Calculator {
 	 * @param value
 	 */
 	public void add(int value){
+		returnString += " + " + value;
 		total = value + total;
 	}
 	
@@ -29,6 +31,7 @@ public class Calculator {
 	 * @param value
 	 */
 	public void subtract(int value){
+		returnString += " - " + value;
 		total = total - value;
 	}
 	
@@ -37,6 +40,7 @@ public class Calculator {
 	 * @param value
 	 */
 	public void multiply(int value){
+		returnString += " * " + value;
 		total = total * value;
 	}
 	
@@ -45,6 +49,7 @@ public class Calculator {
 	 * @param value
 	 */
 	public void divide(int value){
+		returnString += " / " + value;
 		if(value == 0)
 			total = 0;
 		else
@@ -52,12 +57,12 @@ public class Calculator {
 	}
 	
 	/**
-	 * returns an empty string ""
+	 * returns 0 along with any calculator input afterwards
 	 * @param none
-	 * 
 	 */
 	public String getHistory(){
-		return "";	//empty string 
 		
+		return returnString;
 	}
+	
 }

@@ -61,6 +61,8 @@ public class CalculatorTest {
 		assertEquals(9, calc.getTotal());
 		calc.multiply(-2);
 		assertEquals(-18, calc.getTotal());
+		calc.multiply(0);
+		assertEquals(0, calc.getTotal());
 	}
 	
 	@Test
@@ -82,10 +84,18 @@ public class CalculatorTest {
 	}
 	
 	@Test
-	public void getHistory(){
-	//fail();
-	Calculator calc = new Calculator();
-	assertEquals("", calc.getHistory());
+	public void testGetHistory(){
+		//fail();
+		Calculator calc = new Calculator();
+		calc.add(4);
+		calc.subtract(5);
+		calc.multiply(5);
+		calc.add(3);
+		calc.divide(4);
+		assertEquals("0 + 4 - 5 * 5 + 3 / 4", calc.getHistory());
+		calc.divide(0);
+		assertEquals("0 + 4 - 5 * 5 + 3 / 4 / 0", calc.getHistory());
+		
 	}
-	
+
 }
