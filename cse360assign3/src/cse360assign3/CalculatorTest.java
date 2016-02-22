@@ -17,6 +17,12 @@ public class CalculatorTest {
 		//fail();
 		Calculator calc = new Calculator();
 		assertEquals(0, calc.getTotal());	//initial condition should be 0
+		calc.add(5);
+		calc.add(100);
+		calc.add(1234);
+		assertEquals(1339, calc.getTotal());
+		calc.add(-2000);
+		assertEquals(-661, calc.getTotal()); //test to see if negative totals work
 		
 	}
 	
@@ -94,7 +100,9 @@ public class CalculatorTest {
 		calc.divide(4);
 		assertEquals("0 + 4 - 5 * 5 + 3 / 4", calc.getHistory());
 		calc.divide(0);
-		assertEquals("0 + 4 - 5 * 5 + 3 / 4 / 0", calc.getHistory());
+		calc.add(-5);
+		calc.subtract(-10);
+		assertEquals("0 + 4 - 5 * 5 + 3 / 4 / 0 + -5 - -10", calc.getHistory());
 		
 	}
 
